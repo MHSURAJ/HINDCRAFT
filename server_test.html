@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HindCraft Server</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Orbitron', sans-serif;
+}
+
+body{
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Background Video */
+#bg-video{
+    position:fixed;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-2;
+}
+
+/* Dark Overlay */
+.overlay{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.9));
+    z-index:-1;
+}
+
+/* Navbar */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+    background:rgba(0,0,0,0.8);
+    backdrop-filter:blur(10px);
+    position:sticky;
+    top:0;
+}
+
+.navbar h2{
+    color:#00ffcc;
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    margin:0 10px;
+    transition:0.3s;
+}
+
+.navbar a:hover{
+    color:#00ffcc;
+}
+
+/* Hero */
+.hero{
+    text-align:center;
+    padding:120px 20px 80px;
+}
+
+.hero h1{
+    font-size:55px;
+    color:#00ffcc;
+    text-shadow:0 0 15px #00ffcc;
+}
+
+.hero p{
+    margin:20px 0;
+    font-size:18px;
+}
+
+/* Buttons */
+.btn{
+    padding:14px 28px;
+    margin:10px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.discord{
+    background:#5865F2;
+}
+
+.copy{
+    background:#00ffcc;
+    color:black;
+}
+
+.btn:hover{
+    transform:scale(1.1);
+    opacity:0.9;
+}
+
+/* IP Box */
+.ip-box{
+    margin-top:20px;
+    display:inline-block;
+    padding:15px 25px;
+    background:rgba(255,255,255,0.1);
+    border-radius:12px;
+    backdrop-filter:blur(10px);
+}
+
+.ip-text{
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+/* Sections */
+section{
+    padding:60px 20px;
+    text-align:center;
+}
+
+/* Cards */
+.cards{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    margin:15px;
+    padding:25px;
+    border-radius:15px;
+    width:260px;
+    backdrop-filter:blur(10px);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+/* Gallery */
+.gallery img{
+    width:260px;
+    margin:10px;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+.gallery img:hover{
+    transform:scale(1.1);
+}
+
+/* Footer */
+footer{
+    padding:20px;
+    background:black;
+    text-align:center;
+    margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<video autoplay muted loop id="bg-video">
+    <source src="bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<!-- Navbar -->
+<div class="navbar">
+    <h2>HindCraft</h2>
+    <div>
+        <a href="#tournament">Tournament</a>
+        <a href="#rules">Rules</a>
+        <a href="#gallery">Arena</a>
+    </div>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+    <h1>🔥 HindCraft PvP 🔥</h1>
+    <p>Ultimate Minecraft Mace PvP Experience</p>
+
+    <button class="btn discord" onclick="joinDiscord()">Join Discord</button>
+
+    <!-- IP Section -->
+    <div class="ip-box">
+        <div class="ip-text">Server IP: <b id="ip">play.hindcraft.online</b></div>
+        <button class="btn copy" onclick="copyIP()">Copy IP</button>
+    </div>
+</div>
+
+<!-- Tournament -->
+<section id="tournament">
+    <h2>🏆 Tournament</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Entry</h3>
+            <p>FREE</p>
+        </div>
+        <div class="card">
+            <h3>Mode</h3>
+            <p>Mace PvP</p>
+        </div>
+        <div class="card">
+            <h3>DAY</h3>
+            <p>Sunday</p>
+        </div>
+    </div>
+</section>
+
+<!-- Rules -->
+<section id="rules">
+    <h2>📜 Rules</h2>
+    <div class="cards">
+        <div class="card">No Hacks</div>
+        <div class="card">No Teaming</div>
+        <div class="card">Respect Everyone</div>
+    </div>
+</section>
+
+<!-- Gallery -->
+<section id="gallery">
+    <h2>🎮 Arena</h2>
+    <div class="gallery">
+        <img src="arena1.jpg">
+        <img src="arena2.jpg">
+        <img src="arena3.jpg">
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 HindCraft Server</p>
+</footer>
+
+<script>
+function joinDiscord(){
+    window.open("https://discord.gg/UmzHfWyKac", "_blank");
+}
+
+function copyIP(){
+    const ip = document.getElementById("ip").innerText;
+    navigator.clipboard.writeText(ip);
+    alert("IP Copied: " + ip);
+}
+</script>
+
+</body>
+</html>
