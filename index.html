@@ -1,258 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18060622698"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18060622698"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18060622698');
+    </script>
+    <title>HindCraft Server</title>
 
-  gtag('config', 'AW-18060622698');
-</script>
-<title>HindCraft Server</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', sans-serif;
+        }
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Orbitron', sans-serif;
-}
+        body {
+            color: white;
+            overflow-x: hidden;
+            background-color: #050a10; /* Fallback color */
+        }
 
-body{
-    color:white;
-    overflow-x:hidden;
-}
+        /* Fullscreen Background Image */
+        .bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* YAHAN APNI IMAGE KA NAAM YA LINK DALEIN */
+            background-image: url('hindcraft_bg.png'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -2;
+        }
 
-/* Background Video */
-#bg-video{
-    position:fixed;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    z-index:-2;
-}
+        /* Dark Overlay for better text readability */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85));
+            z-index: -1;
+        }
 
-/* Dark Overlay */
-.overlay{
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.9));
-    z-index:-1;
-}
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            border-bottom: 2px solid #00d4ff;
+            z-index: 100;
+        }
 
-/* Navbar */
-.navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 30px;
-    background:rgba(0,0,0,0.8);
-    backdrop-filter:blur(10px);
-    position:sticky;
-    top:0;
-}
+        .navbar h2 {
+            color: #00d4ff;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
 
-.navbar h2{
-    color:#00ffcc;
-}
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
 
-.navbar a{
-    color:white;
-    text-decoration:none;
-    margin:0 10px;
-    transition:0.3s;
-}
+        .navbar a:hover {
+            color: #ffcc00; /* Gold hover effect */
+        }
 
-.navbar a:hover{
-    color:#00ffcc;
-}
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 150px 20px 100px;
+        }
 
-/* Hero */
-.hero{
-    text-align:center;
-    padding:120px 20px 80px;
-}
+        .hero h1 {
+            font-size: 65px;
+            color: #00d4ff;
+            text-shadow: 0 0 20px #00d4ff, 0 0 40px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+        }
 
-.hero h1{
-    font-size:55px;
-    color:#00ffcc;
-    text-shadow:0 0 15px #00ffcc;
-}
+        .hero p {
+            margin: 20px 0;
+            font-size: 20px;
+            color: #e0e0e0;
+        }
 
-.hero p{
-    margin:20px 0;
-    font-size:18px;
-}
+        /* Buttons */
+        .btn {
+            padding: 15px 35px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.4s ease;
+            text-transform: uppercase;
+        }
 
-/* Buttons */
-.btn{
-    padding:14px 28px;
-    margin:10px;
-    border:none;
-    border-radius:12px;
-    cursor:pointer;
-    font-size:16px;
-    transition:0.3s;
-}
+        .discord {
+            background: #5865F2;
+            color: white;
+            box-shadow: 0 5px 15px rgba(88, 101, 242, 0.4);
+        }
 
-.discord{
-    background:#5865F2;
-}
+        .copy {
+            background: #ffcc00; /* Gold Color */
+            color: black;
+            box-shadow: 0 5px 15px rgba(255, 204, 0, 0.3);
+        }
 
-.copy{
-    background:#00ffcc;
-    color:black;
-}
+        .btn:hover {
+            transform: translateY(-5px);
+            filter: brightness(1.1);
+        }
 
-.btn:hover{
-    transform:scale(1.1);
-    opacity:0.9;
-}
+        /* IP Box */
+        .ip-box {
+            margin-top: 30px;
+            display: inline-block;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 15px;
+            backdrop-filter: blur(15px);
+        }
 
-/* IP Box */
-.ip-box{
-    margin-top:20px;
-    display:inline-block;
-    padding:15px 25px;
-    background:rgba(255,255,255,0.1);
-    border-radius:12px;
-    backdrop-filter:blur(10px);
-}
+        .ip-text {
+            font-size: 20px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
 
-.ip-text{
-    font-size:18px;
-    margin-bottom:10px;
-}
+        /* Sections */
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
 
-/* Sections */
-section{
-    padding:60px 20px;
-    text-align:center;
-}
+        h2 {
+            font-size: 40px;
+            margin-bottom: 50px;
+            color: #ffcc00;
+        }
 
-/* Cards */
-.cards{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-}
+        /* Cards */
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
 
-.card{
-    background:rgba(255,255,255,0.08);
-    margin:15px;
-    padding:25px;
-    border-radius:15px;
-    width:260px;
-    backdrop-filter:blur(10px);
-    transition:0.3s;
-}
+        .card {
+            background: rgba(255, 255, 255, 0.07);
+            padding: 30px;
+            border-radius: 20px;
+            width: 280px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
 
-.card:hover{
-    transform:translateY(-10px);
-}
+        .card:hover {
+            transform: scale(1.05);
+            background: rgba(0, 212, 255, 0.1);
+            border-color: #00d4ff;
+        }
 
-/* Gallery */
-.gallery img{
-    width:260px;
-    margin:10px;
-    border-radius:12px;
-    transition:0.3s;
-}
+        .card h3 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
 
-.gallery img:hover{
-    transform:scale(1.1);
-}
+        /* Gallery */
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
 
-/* Footer */
-footer{
-    padding:20px;
-    background:black;
-    text-align:center;
-    margin-top:40px;
-}
-</style>
+        .gallery img {
+            width: 350px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: 0.4s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            border-color: #ffcc00;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px;
+            background: rgba(0,0,0,0.9);
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 40px; }
+            .navbar { padding: 15px 20px; }
+        }
+    </style>
 </head>
 
 <body>
 
-<video autoplay muted loop id="bg-video">
-    <source src="bg.mp4" type="video/mp4">
-</video>
-
+<div class="bg-container"></div>
 <div class="overlay"></div>
 
-<!-- Navbar -->
-<div class="navbar">
+<nav class="navbar">
     <h2>HindCraft</h2>
     <div>
         <a href="#tournament">Tournament</a>
         <a href="#rules">Rules</a>
         <a href="#gallery">Arena</a>
     </div>
-</div>
+</nav>
 
-<!-- Hero -->
 <div class="hero">
-    <h1>🔥 HindCraft PvP 🔥</h1>
-    <p>Ultimate Minecraft Mace PvP Experience</p>
+    <h1>🔥 HINDCRAFT PvP 🔥</h1>
+    <p>The Ultimate Mace Combat Arena</p>
 
     <button class="btn discord" onclick="joinDiscord()">Join Discord</button>
 
-    <!-- IP Section -->
     <div class="ip-box">
-        <div class="ip-text">Server IP: <b id="ip">play.hindcraft.online</b></div>
-        <button class="btn copy" onclick="copyIP()">Copy IP</button>
+        <div class="ip-text">IP: <b id="ip" style="color:#00d4ff;">play.hindcraft.online</b></div>
+        <button class="btn copy" onclick="copyIP()">Copy Server IP</button>
     </div>
 </div>
 
-<!-- Tournament -->
 <section id="tournament">
-    <h2>🏆 Tournament</h2>
+    <h2>🏆 WEEKLY TOURNAMENT</h2>
     <div class="cards">
         <div class="card">
             <h3>Entry</h3>
-            <p>FREE</p>
+            <p>100% FREE</p>
         </div>
         <div class="card">
             <h3>Mode</h3>
-            <p>Mace PvP</p>
+            <p>Mace PvP (1.21+)</p>
         </div>
         <div class="card">
-            <h3>DAY</h3>
-            <p>Sunday</p>
+            <h3>Schedule</h3>
+            <p>Every Sunday</p>
         </div>
     </div>
 </section>
 
-<!-- Rules -->
 <section id="rules">
-    <h2>📜 Rules</h2>
+    <h2>📜 SERVER RULES</h2>
     <div class="cards">
-        <div class="card">No Hacks</div>
-        <div class="card">No Teaming</div>
-        <div class="card">Respect Everyone</div>
+        <div class="card">🚫 No Hacks/Cheats</div>
+        <div class="card">🤝 No Unfair Teaming</div>
+        <div class="card">💎 Respect Staff & Players</div>
     </div>
 </section>
 
-<!-- Gallery -->
 <section id="gallery">
-    <h2>🎮 Arena</h2>
+    <h2>🎮 ARENA SHOWCASE</h2>
     <div class="gallery">
-        <img src="arena1.png">
-        <img src="arena2.png">
-        <img src="arena3.png">
+        <img src="arena1.png" alt="Arena 1">
+        <img src="arena2.png" alt="Arena 2">
+        <img src="arena3.png" alt="Arena 3">
     </div>
 </section>
 
 <footer>
-    <p>© 2026 HindCraft Server</p>
+    <p>© 2026 HindCraft Network | Designed for Champions</p>
 </footer>
 
 <script>
@@ -262,8 +304,9 @@ function joinDiscord(){
 
 function copyIP(){
     const ip = document.getElementById("ip").innerText;
-    navigator.clipboard.writeText(ip);
-    alert("IP Copied: " + ip);
+    navigator.clipboard.writeText(ip).then(() => {
+        alert("Server IP Copied: " + ip);
+    });
 }
 </script>
 
